@@ -3,7 +3,6 @@
 
 // Variables  =================================================================
 
-
 // Document ===================================================================
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
@@ -41,7 +40,7 @@ a {
 .navbar-default,
 .navbar-inverse {
   background: rgba(255, 255, 255, 0.90);
-  border-color: rgba(238,238,238,0.90);
+  border-color: rgba(238, 238, 238, 0.90);
 
   .navbar-brand {
     color: #007aff;
@@ -73,7 +72,6 @@ a {
   }
 }
 
-
 // Modals ======================================================================
 
 .modal-content {
@@ -96,7 +94,6 @@ a {
   margin-top: 0;
   padding: 15px 20px 5px;
 }
-
 
 // Labels ======================================================================
 .label {
@@ -186,9 +183,6 @@ a {
   }
 }
 
-
-
-
 // Alerts ======================================================================
 .alert {
   border-radius: 0px;
@@ -224,7 +218,7 @@ a {
       &:hover {
         color: #333;
         border-bottom-color: #007aff;
-        background-color: rgba(0,0,0,0.05);
+        background-color: rgba(0, 0, 0, 0.05);
       }
     }
 
@@ -260,7 +254,6 @@ a {
     }
   }
 }
-
 
 // Buttons ====================================================================
 .btn {
@@ -321,7 +314,6 @@ a {
     border-color: #5bc0de;
   }
 }
-
 
 .btn-warning {
   background: #f0ad4e;
@@ -493,9 +485,6 @@ a {
   }
 }
 
-
-
-
 // Wells =================================================================
 .well {
   padding: 15px 15px 5px;
@@ -513,7 +502,6 @@ a {
     margin-bottom: 10px;
   }
 }
-
 
 // Typography =================================================================
 
@@ -579,7 +567,8 @@ span {
   float: right;
 
   input {
-    .form-control;
+    .form-control
+  ;
     display: inline-block;
     width: inherit;
     height: 30px;
@@ -664,7 +653,8 @@ span {
 }
 
 .dataTables_wrapper {
-  .clearfix;
+  .clearfix
+;
 }
 
 // Showing 1 to 10 of "X" entries
@@ -687,7 +677,7 @@ span {
   color: #999;
   background: #fff;
   padding: 4px 8px;
-  margin-left:5px;
+  margin-left: 5px;
 
   &:hover {
     color: #007aff;
@@ -706,7 +696,6 @@ span {
     pointer-events: none;
   }
 }
-
 
 // Forms =================================================================
 .form-horizontal .control-label {
@@ -807,8 +796,6 @@ input[type="radio"]:checked + span:after {
 
 // Misc ===================================================================
 
-
-
 .login-container {
   background-color: rgba(255, 255, 255, 0.95);
   border-radius: 40px;
@@ -885,7 +872,6 @@ input[type="radio"]:checked + span:after {
   }
 
 }
-
 
 .fileinput-filename {
   vertical-align: super;

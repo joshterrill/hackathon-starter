@@ -14,7 +14,7 @@ footer {
 // -------------------------
 
 a {
-  transition: all .4s cubic-bezier(.24,.45,.46,.92);
+  transition: all .4s cubic-bezier(.24, .45, .46, .92);
 
   &:hover {
     text-decoration: none;
@@ -44,7 +44,7 @@ p {
   padding: 10px 16px;
   border: 0;
   border-radius: 3px;
-  transition: all .4s cubic-bezier(.24,.45,.46,.92);
+  transition: all .4s cubic-bezier(.24, .45, .46, .92);
 
   &:hover {
     color: #fff;
@@ -82,11 +82,11 @@ p {
 
 .navbar-default {
   border: 0;
-  box-shadow: 0 1px 5px rgba(0,0,0,.15);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, .15);
 
   .navbar-nav {
     > li > a {
-      transition: color .4s cubic-bezier(.24,.45,.46,.92);
+      transition: color .4s cubic-bezier(.24, .45, .46, .92);
     }
   }
 }

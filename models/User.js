@@ -3,7 +3,7 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-  email: { type: String, lowercase: true, unique: true },
+  email: {type: String, lowercase: true, unique: true},
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
@@ -18,27 +18,27 @@ var userSchema = new mongoose.Schema({
   tokens: Array,
 
   profile: {
-    name: { type: String, default: '' },
-    gender: { type: String, default: '' },
-    location: { type: String, default: '' },
-    website: { type: String, default: '' },
-    picture: { type: String, default: '' }
+    name: {type: String, default: ''},
+    gender: {type: String, default: ''},
+    location: {type: String, default: ''},
+    website: {type: String, default: ''},
+    picture: {type: String, default: ''}
   }
-}, { timestamps: true });
+}, {timestamps: true});
 
 /**
  * Password hash middleware.
  */
-userSchema.pre('save', function(next) {
+userSchema.pre('save', function (next) {
   var user = this;
   if (!user.isModified('password')) {
     return next();
   }
-  bcrypt.genSalt(10, function(err, salt) {
+  bcrypt.genSalt(10, function (err, salt) {
     if (err) {
       return next(err);
     }
-    bcrypt.hash(user.password, salt, null, function(err, hash) {
+    bcrypt.hash(user.password, salt, null, function (err, hash) {
       if (err) {
         return next(err);
       }
@@ -51,8 +51,8 @@ userSchema.pre('save', function(next) {
 /**
  * Helper method for validating user's password.
  */
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+userSchema.methods.comparePassword = function (candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function (err, isMatch) {
     if (err) {
       return cb(err);
     }
@@ -63,7 +63,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 /**
  * Helper method for getting user's gravatar.
  */
-userSchema.methods.gravatar = function(size) {
+userSchema.methods.gravatar = function (size) {
   if (!size) {
     size = 200;
   }

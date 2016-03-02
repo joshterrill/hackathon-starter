@@ -7,13 +7,13 @@ var screen = blessed.screen({
   autoPadding: true
 });
 
-screen.key('q', function() {
+screen.key('q', function () {
   process.exit(0);
 });
 
 var home = blessed.list({
   parent: screen,
-  padding: { top: 2 },
+  padding: {top: 2},
   mouse: true,
   keys: true,
   fg: 'white',
@@ -78,7 +78,7 @@ var success = blessed.box({
   padding: 1
 });
 
-success.on('keypress', function() {
+success.on('keypress', function () {
   home.focus();
   home.remove(success);
 });
@@ -161,7 +161,7 @@ var cancel = blessed.button({
   }
 });
 
-cancel.on('press', function() {
+cancel.on('press', function () {
   home.focus();
   home.remove(inner);
   screen.render();
@@ -174,10 +174,10 @@ var emailForm = blessed.form({
   keys: true,
   fg: 'white',
   bg: 'blue',
-  padding: { left: 1, right: 1 }
+  padding: {left: 1, right: 1}
 });
 
-emailForm.on('submit', function() {
+emailForm.on('submit', function () {
   var contactCtrl = fs.readFileSync('controllers/contact.js').toString().split(os.EOL);
   var userCtrl = fs.readFileSync('controllers/user.js').toString().split(os.EOL);
   var choice = null;
@@ -192,17 +192,17 @@ emailForm.on('submit', function() {
 
   var index = contactCtrl.indexOf('var transporter = nodemailer.createTransport({');
   contactCtrl.splice(index + 1, 1, "  service: '" + choice + "',");
-  contactCtrl.splice(index + 3, 1, '    user: process.env.' + choice.toUpperCase() +'_USER,');
+  contactCtrl.splice(index + 3, 1, '    user: process.env.' + choice.toUpperCase() + '_USER,');
   contactCtrl.splice(index + 4, 1, '    pass: process.env.' + choice.toUpperCase() + '_PASSWORD');
   fs.writeFileSync('controllers/contact.js', contactCtrl.join(os.EOL));
 
   index = userCtrl.indexOf('      var transporter = nodemailer.createTransport({');
   userCtrl.splice(index + 1, 1, "        service: '" + choice + "',");
-  userCtrl.splice(index + 3, 1, '          user: process.env.' + choice.toUpperCase() +'_USER,');
+  userCtrl.splice(index + 3, 1, '          user: process.env.' + choice.toUpperCase() + '_USER,');
   userCtrl.splice(index + 4, 1, '          pass: process.env.' + choice.toUpperCase() + '_PASSWORD');
   index = userCtrl.indexOf('      var transporter = nodemailer.createTransport({', (index + 1));
   userCtrl.splice(index + 1, 1, "        service: '" + choice + "',");
-  userCtrl.splice(index + 3, 1, '          user: process.env.' + choice.toUpperCase() +'_USER,');
+  userCtrl.splice(index + 3, 1, '          user: process.env.' + choice.toUpperCase() + '_USER,');
   userCtrl.splice(index + 4, 1, '          pass: process.env.' + choice.toUpperCase() + '_PASSWORD');
   fs.writeFileSync('controllers/user.js', userCtrl.join(os.EOL));
 
@@ -267,7 +267,7 @@ var emailSubmit = blessed.button({
   }
 });
 
-emailSubmit.on('press', function() {
+emailSubmit.on('press', function () {
   emailForm.submit();
 });
 
@@ -289,14 +289,14 @@ var emailCancel = blessed.button({
   }
 });
 
-emailCancel.on('press', function() {
+emailCancel.on('press', function () {
   home.focus();
   home.remove(emailForm);
   screen.render();
 
 });
 
-home.on('select', function(child, index) {
+home.on('select', function (child, index) {
   switch (index) {
     case 0:
       home.append(emailForm);
@@ -319,24 +319,24 @@ screen.render();
 
 function addClusterSupport() {
 
-  var fileContents = multiline(function() {
-/*
-var os = require('os');
-var cluster = require('cluster');
+  var fileContents = multiline(function () {
+    /*
+     var os = require('os');
+     var cluster = require('cluster');
 
-cluster.setupMaster({
-  exec: 'app.js'
-});
+     cluster.setupMaster({
+     exec: 'app.js'
+     });
 
-cluster.on('exit', function(worker) {
-  console.log('worker ' + worker.id + ' died');
-  cluster.fork();
-});
+     cluster.on('exit', function(worker) {
+     console.log('worker ' + worker.id + ' died');
+     cluster.fork();
+     });
 
-for (var i = 0; i < os.cpus().length; i++) {
-  cluster.fork();
-}
-*/
+     for (var i = 0; i < os.cpus().length; i++) {
+     cluster.fork();
+     }
+     */
   });
 
   fs.writeFileSync('cluster_app.js', fileContents);
