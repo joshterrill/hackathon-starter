@@ -3139,7 +3139,8 @@ tbody.collapse.in {
   margin-left: 2px;
   vertical-align: middle;
   border-top: 4px dashed;
-  border-top: 4px solid \9 ;
+  border-top: 4px solid \9
+ ;
   border-right: 4px solid transparent;
   border-left: 4px solid transparent; }
 
@@ -3246,7 +3247,8 @@ tbody.collapse.in {
 .navbar-fixed-bottom .dropdown .caret {
   border-top: 0;
   border-bottom: 4px dashed;
-  border-bottom: 4px solid \9 ;
+  border-bottom: 4px solid \9
+ ;
   content: ""; }
 
 .dropup .dropdown-menu,
@@ -8827,3 +8829,17 @@ textarea {
   margin-right: 6px; }
 
 /*# sourceMappingURL=main.css.map */
+
+.navbar-brand .logo {
+  width: 90px;
+}
+
+.featured {
+  background: #ffffff;
+  box-shadow: 0 20px 20px 0px #525252;
+}
+
+.featured-contain {
+  background: url(http://hdwallpapershoot.com/wp-content/uploads/2016/01/Sunburst-Wallpaper-HD-Desktop-Background.jpg);
+  background-size: cover;
+}
